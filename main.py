@@ -3,6 +3,7 @@
 from pathlib import Path
 import argparse
 import time
+import sys
 
 from PIL import Image
 
@@ -103,6 +104,7 @@ def main():
     # the FPS of the video would need to be explicitly passed as a program
     # argument. For the purposes of this mini-project this is a WONTFIX.
     FPS = 30
+    SPF = 1 / FPS
     # Time accumulator. For each frame rendered, 1 / FPS is subtracted from the
     # accumulator and the time to execute the frame-rendering logic is added to
     # the accumulator. Draw calls are only permitting once every 1 / FPS
@@ -115,7 +117,7 @@ def main():
         start = time.time()
         braille = image_to_braille(frame)
         # Wait until 1 / FPS seconds have elapsed since the last frame render.
-        while (time.time() - start) + accumulator < 1 / FPS:
+        while accumulator + (time.time() - start) < SPF:
             time.sleep(0.001)
         # Perform draw calls.
         print(braille, end="")
@@ -123,13 +125,8 @@ def main():
             print(f"Current Frame: {frame}")
             print(f"Accumulator: {accumulator:.5f}")
         # Return the new value of the accumulator.
-        return accumulator + time.time() - start - 1 / FPS
+        return accumulator + (time.time() - start) - SPF
 
-    # Pause for a brief period of time so that I can start the script and then
-    # hit play on the bad-apple video without the script pulling many frames
-    # ahead of the video. XXX: This is not a very good way to sync the video
-    # and terminal streams.
-    time.sleep(0.15)
     for frame in sorted(Path(args.directory).glob("*.png")):
         accumulator = next_frame(frame, accumulator)
 

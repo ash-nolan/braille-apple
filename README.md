@@ -1,7 +1,7 @@
 # Braille Apple
 
 [Bad Apple](https://www.youtube.com/watch?v=FtutLA63Cp8) rendered from the
-terminal using [Braille patterns](https://en.wikipedia.org/wiki/Braille_Patterns).
+terminal using [braille patterns](https://en.wikipedia.org/wiki/Braille_Patterns).
 
 
 ## Dependencies
