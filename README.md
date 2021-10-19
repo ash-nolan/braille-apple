@@ -3,8 +3,8 @@
 [Bad Apple](https://www.youtube.com/watch?v=FtutLA63Cp8) rendered from the
 terminal using [braille patterns](https://en.wikipedia.org/wiki/Braille_Patterns).
 
-See a side by side comparison of Bad Apple and Braille Apple (WebM)
-[**-->here<--**](https://ashn-public.us-east-1.linodeobjects.com/2021-10-18-braille-apple.webm)!
+See a side by side comparison of Bad Apple and Braille Apple
+[**-->here<--**](https://vimeo.com/636580388)!
 
 ## Dependencies
 ```sh
