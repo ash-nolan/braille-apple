@@ -108,14 +108,14 @@ def main():
     # accumulator and the time to execute the frame-rendering logic is added to
     # the accumulator. Draw calls are only permitting once every 1 / FPS
     # seconds, and any excess time is captured in the new value of the
-    # accumulator. This systems leads to a semi-stable frame rate without
+    # accumulator. This system allows for a semi-stable frame rate without
     # having to worry about de-sync.
     accumulator = 0
 
     def next_frame(frame, accumulator):
         start = time.time()
         braille = image_to_braille(frame)
-        # Wait until 1 / FPS seconds have elapsed since the last frame render.
+        # Wait until 1 / FPS seconds have elapsed since the last frame.
         while accumulator + (time.time() - start) < SPF:
             time.sleep(0.001)
         # Perform draw calls.
