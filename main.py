@@ -3,7 +3,6 @@
 from pathlib import Path
 import argparse
 import time
-import sys
 
 from PIL import Image
 
@@ -67,7 +66,7 @@ def image_to_braille(path, width=160, height=120):
     img = img.convert("1")  # 1-bit color (a.k.a black & white)
     img = img.resize((width, height))
     ESC = chr(27)  # ANSI ESC
-    s = f"{ESC}[H{ESC}[2J"  #  HOME; CLEAR SCREEN
+    s = f"{ESC}[H{ESC}[2J"  # HOME; CLEAR SCREEN
     for y in range(0, img.height, 4):
         for x in range(0, img.width, 2):
             bits = 0b00000000

@@ -1,7 +1,7 @@
 .POSIX:
-.PHONY: all main lint format clean
+.PHONY: all main lint format clean fresh
 
-all: main lint format
+all: main
 
 bad-apple.mp4:
 	youtube-dl -o $@ -f 'best[ext=mp4]' https://youtu.be/FtutLA63Cp8
