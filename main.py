@@ -33,7 +33,7 @@ from PIL import Image
 #
 # Dot Numbering:
 #  1 4
-#  2 3
+#  2 5
 #  3 6
 #  7 8
 #
